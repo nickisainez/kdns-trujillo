@@ -1,0 +1,73 @@
+---
+import Container from "../container.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+const menuitems = [
+  {
+    title: "Servicios",
+    path: "#",
+    children: [
+      { title: "Ingeniería", path: "#" },
+      { title: "Informática", path: "#" },
+    ],
+  },
+  {
+    title: "Nosotros",
+    path: "/nosotros",
+  },
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contacto",
+    path: "/contacto",
+  },
+];
+---
+
+<Container class="bg-gray-900	text-white">
+  <header class="flex flex-col lg:flex-row justify-between items-center text-lg">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between flex ">
+        <a href="/" class="text-lg"
+          ><span class="font-bold text-white">KDNS Trujillo</span>
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3 text-slate-200	">
+          {
+            menuitems.map((item, index) => (
+              <>
+                {item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                )}
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 text-gray-600 text-slate-200	hover:text-orange-300">
+                      {item.title}
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ul>
+  
+      </MenuItems>
+    </Astronav>
+   </header>
+</Container>

@@ -1,0 +1,26 @@
+{
+  "name": "kdns-trujillo",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^3.1.0",
+    "astro": "^2.0.18",
+    "astro-navbar": "^1.1.5",
+    "@fontsource/inter": "^4.5.15",
+    "tailwindcss": "^3.2.7",
+    "@astrojs/image": "^0.14.1",
+    "@astrojs/mdx": "^0.16.0",
+    "@astrojs/sitemap": "^1.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "sharp": "^0.31.3"
+  }
+}
