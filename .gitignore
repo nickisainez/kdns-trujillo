@@ -1,8 +1,10 @@
 # build output
 dist/
+.vscode
 
 # generated types
 .astro/
+package-lock.json
 
 # dependencies
 node_modules/
