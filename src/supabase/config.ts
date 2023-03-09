@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import * as Sentry from "@sentry/browser";
 
 interface ICondition {
   value: string | number | boolean;
@@ -18,19 +17,10 @@ export async function getDataFromTable(
   condition: ICondition | null = null,
   select: string = "*"
 ): Promise<any | null> {
-  const { data, error } = await supabase
+  const { data } = await supabase
     .from(table)
     .select(select)
     .order("id", { ascending: true });
-
-  if (error) {
-    Sentry.captureException(error);
-    return null;
-  }
-
-  if (condition) {
-    return data.filter((item: any) => item[condition.key] === condition.value);
-  }
 
   return data;
 }
@@ -40,11 +30,6 @@ export async function getProjects(proyecto_id: string) {
     .from("proyectos")
     .select("*")
     .eq("id", proyecto_id);
-
-  if (error) {
-    Sentry.captureException(error);
-    return [];
-  }
 
   return data;
 }
