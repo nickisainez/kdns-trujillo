@@ -6,7 +6,7 @@ import type { Project } from "../../interface/Proyecto";
 export async function getStaticPaths() {
   const proyectos = await getDataFromTable("proyectos");
   return proyectos.map((projec: Project) => ({
-    params: { id: projec.id },
+    params: { id: projec.id }
   }));
 }
 
@@ -14,15 +14,14 @@ const { id } = Astro.params;
 
 const [projec] = await getDataFromTable("proyectos", {
   key: "id",
-  value: Number(id),
+  value: Number(id)
 });
 ---
-<Layout title="Eventos | Tech Conf">
 
-    <main class="scene">
-      <h1> Proyecto: {projec.name}</h1>
-      <h2>{projec.description}</h2>
-      <img src={projec.image1} alt="">
-
-    </main>
+<Layout title="Proyecto ID">
+  <main class="scene">
+    <h1>Proyecto: {projec.name}</h1>
+    <h2>{projec.description}</h2>
+    <img src={projec.image1} alt="" />
+  </main>
 </Layout>

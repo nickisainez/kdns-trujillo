@@ -6,22 +6,22 @@ import type { Project } from "../../interface/Proyecto";
 
 const proyectos = (await getDataFromTable("proyectos")) as Project[];
 ---
-<Layout title="Eventos | Tech Conf">
-    <main class="mt-10 md:mx-16">
-      <div class="mt-10 grid md:grid-cols-3 sm:grid-cols-1 gap-6">
-        {
-          proyectos &&
+
+<Layout title="Principal">
+  <main class="mt-10 md:mx-16">
+    <div class="mt-10 grid gap-6 sm:grid-cols-1 md:grid-cols-3">
+      {
+        proyectos &&
           proyectos.map((projec: Project) => (
-              <Card
-                id={String(projec.id)}
-                client:load
-                image1={projec.image1}
-                description={projec.description}
-                name={projec.name}
-              />
-            ))
-        }
-      </div>
-    </main>
-  </Layout>
-  
+            <Card
+              client:load
+              id={String(projec.id)}
+              image1={projec.image1}
+              description={projec.description}
+              name={projec.name}
+            />
+          ))
+      }
+    </div>
+  </main>
+</Layout>

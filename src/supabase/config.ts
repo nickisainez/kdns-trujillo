@@ -6,8 +6,7 @@ interface ICondition {
 }
 
 const supabase = createClient(
-  import.meta.env.ASTRO_SUPABASE_URL ??
-    "https://jjewtbfjeftwhfadmwcp.supabase.co",
+  import.meta.env.ASTRO_SUPABASE_URL ?? "https://jjewtbfjeftwhfadmwcp.supabase.co",
   import.meta.env.ASTRO_SUPABASE_PUBLIC_KEY ??
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqZXd0YmZqZWZ0d2hmYWRtd2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgzMTA3NTEsImV4cCI6MTk5Mzg4Njc1MX0.W_DmZmkDsG8xAB7P7atWKzXmOnsRK8nWWXA1ZjG2JgU"
 );

@@ -14,13 +14,15 @@ export interface Props {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon3.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,700" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,700"
+      rel="stylesheet"
+    />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
-
   </head>
-  <body> 
-    <Navbar/>
+  <body>
+    <Navbar />
     <slot />
     <style is:global>
       /* Improve Page speed */
@@ -29,7 +31,7 @@ export interface Props {
         content-visibility: auto;
       }
       body {
-        background-color: #FF914D;
+        background-color: #ff914d;
       }
     </style>
   </body>

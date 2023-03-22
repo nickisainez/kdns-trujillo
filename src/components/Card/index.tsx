@@ -1,44 +1,36 @@
-import { useEffect } from "react";
-import { getDataFromTable } from "../../supabase/config";
 import type { Project } from "../../interface/Proyecto";
 
 export default function Card(props: Project) {
-  const { name, description, image1, image2, image3, datetime, id } = props;
+  const { name, description, image1, datetime, id } = props;
 
-  const handleGetProjects = async () => {
-    const proyectos = await getDataFromTable("proyectos", {
-      key: "proyectos_id",
-      value: Number(id),
-    });
-  };
-
-  useEffect(() => {
-    handleGetProjects();
-  }, []);
-
- 
   return (
-    <div>
-      <div className="bg-white opacity-25 rounded-lg shadow-2xl"></div>
+    <div className="rounded-lg bg-white shadow-2xl">
       <div className="rounded-lg">
-        <div className="bg-white rounded-lg">
-          <div className="bg-white p-5 border-gray-100 rounded-lg">
-          <img src={image1} />
-            <h2 className="font-bold text-5xl h-16 text-center">
-              {name ?? ""}  
-            </h2>
-            <p className="mt-10 h-20">{description.substring(0, 200)+'...'}</p>
-            <p className="mt-20 text-blue-800 font-bold text-center">{datetime}</p>
+        <div className="rounded-lg bg-white">
+          <div className="rounded-lg border-gray-100 bg-white p-5">
+            <img src={image1} />
+            <h2 className="h-16 text-center text-5xl font-bold">{name ?? ""}</h2>
+            <p className="mt-10 h-20">{description.substring(0, 200) + "..."}</p>
+            <p className="mt-20 text-center font-bold text-blue-800">{datetime}</p>
 
-                <div className="mt-10 flex justify-center items-center">
-                <a
+            <div className="mt-10 flex justify-center">
+              <a
                 href={`/proyectos/${id}`}
-                className="bg-red-500 text-white p-2 font-bold rounded-full px-5"
-                >
+                className="
+                focus:shadow-outline
+                rounded-lg
+                bg-slate-800
+                px-5
+                py-2
+                text-indigo-100
+                transition-colors
+                duration-150
+                hover:bg-slate-900"
+              >
                 Leer más
-                </a>
-                </div>
+              </a>
             </div>
+          </div>
         </div>
       </div>
     </div>
