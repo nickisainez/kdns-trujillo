@@ -3,7 +3,11 @@ import InputField from "./InputField";
 import InputField2 from "./InputField2";
 import SelectField from "./SelectField";
 import TextareaField from "./textarea";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
+
+const SERVICE = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+const TEMPLATE = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+const PKEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [values, setValues] = useState({
@@ -16,7 +20,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.send("service_g9doy7m", "template_t647ktr", values, "ETBIoGiwc-WfcCIld").then(
+    emailjs.send(SERVICE, TEMPLATE, values, PKEY).then(
       (response) => {
         console.log("SUCCESS!", response);
         setValues({
